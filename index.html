@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FocusFlow - Student Productivity</title>
+  <link rel="stylesheet" href="css/styles.css">
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+
+  <header>
+    <nav class="navbar">
+  <h1 class="logo">FocusFlow</h1>
+  <ul class="nav-links">
+    <li><button onclick="showSection('home-section')">Home</button></li>
+    <li><button onclick="showSection('tasks-section')">Tasks</button></li>
+    <li><button onclick="showSection('focus-section')">Focus Timer</button></li>
+    <li><button onclick="showSection('dashboard-section')">Dashboard</button></li>
+  </ul>
+    </nav>
+  </header>
+
+  <main>
+  
+
+   <!-- Home Section (Default Visible) -->
+<section id="home-section" class="section active">
+  <div class="hero">
+  <div class="hero-content">
+    <div class="hero-text">
+      <h2>Welcome to Focus Flow</h2>
+      <p><i>"Efficiently organize your daily tasks, enhance your productivity, and stay on track with your academic and personal goals through a structured and focused workflow designed to support your success."</i></p>
+    </div>
+    <div class="hero-image">
+      <img src="assests/img.jpg" alt="Welcome Study Flow" />
+    </div>
+  </div>
+</div>
+
+  <section class="about-us">
+  <h2>About Us</h2>
+  <p>
+    Welcome<span class="highlight elegant">Focus Flow</span>,  a simple and effective tool designed to help  <span class="highlight amazing">learners</span> stay focused and organized while studying. This website was created with one goal in mind: to support students in managing their time, staying on track, and reaching their academic goals.
+</section>
+
+
+  <div class="motivation-cards-wrapper">
+    <h2>💡 Motivation</h2>
+    <div class="motivation-carousel" id="motivation-carousel">
+      <!-- Cards will be inserted here -->
+    </div>
+  </div>
+</section>
+
+    <!-- Tasks Section -->
+    <section id="tasks-section" class="section">
+      <h2>📋 Task Manager</h2>
+      <form id="task-form" class="task-form">
+        <input type="text" id="task-title" placeholder="Task title" required />
+        <select id="task-subject" required>
+          <option value="" disabled selected>Subject</option>
+          <option value="Math">Math</option>
+          <option value="Science">Science</option>
+          <option value="English">English</option>
+        </select>
+
+        <select id="task-priority" required>
+          <option value="" disabled selected>Priority</option>
+          <option value="High">High</option>
+          <option value="Medium">Medium</option>
+          <option value="Low">Low</option>
+        </select>
+        <input type="date" id="task-deadline" required />
+        <input type="number" id="task-duration" placeholder="Est. minutes" required />
+
+        <button type="submit">Add Task</button>
+      </form>
+       <div class="task-filters">
+  <button id="filter-all" onclick="setFilter('all')">All</button>
+  <button id="filter-pending" onclick="setFilter('pending')">Pending</button>
+  <button id="filter-completed" onclick="setFilter('completed')">Completed</button>
+</div>
+
+ 
+      <div id="task-list" class="task-list">
+        <!-- Dynamic tasks will be rendered here -->
+      </div>
+    </section>
+
+    <!-- Focus Timer Section -->
+    <section id="focus-section" class="section">
+      <h2>⏱️ Focus Timer</h2>
+      <p>Start a 25-minute focus session to stay productive.</p>
+      <div class="focus-timer">
+        <h3 id="timer-display">25:00</h3>
+        <button id="start-timer">Start</button>
+        <button id="reset-timer">Reset</button>
+      </div>
+    </section>
+
+    <!-- Dashboard Section -->
+     <section id="dashboard-section" class="section" style="display:none;">
+     <div class="card">
+  <h3>Completed Tasks</h3>
+  <p id="completed-count">0</p> <!-- CHANGED -->
+</div>
+
+<h2>📊 Dashboard</h2>
+<div id="dashboard-content">
+  <p>Total pending tasks: <span id="total-tasks">0</span></p>
+  <p>Completed tasks: <span id="completed-tasks">0</span></p> <!-- This is okay -->
+  <p>High priority: <span id="high-priority">0</span></p>
+  <p>Medium priority: <span id="medium-priority">0</span></p>
+  <p>Low priority: <span id="low-priority">0</span></p>
+  <p>Tasks due in 3 days: <span id="due-soon">0</span></p>
+  <p>Total estimated study time: <span id="total-duration">0</span> minutes</p>
+</div>
+
+</section>
+
+  </main>
+
+  <footer class="site-footer">
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h2>Focus Flow<span>.</span></h2>
+      <p>Stay productive. Stay focused.</p>
+    </div>
+
+<div class="footer-links">
+  <h4>Navigation</h4>
+  <ul>
+     <li><button class="footer-nav" onclick="showSection('home-section')">Home</button></li>
+    <li><button class="footer-nav" onclick="showSection('tasks-section')">Tasks</button></li>
+    <li><button class="footer-nav" onclick="showSection('focus-section')">Focus Timer</button></li>
+    <li><button class="footer-nav" onclick="showSection('dashboard-section')">Dashboard</button></li>
+  </ul>
+</div>
+
+    <div class="footer-social">
+      <h4>Follow Me</h4>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-subscribe">
+      <h4>Newsletter</h4>
+      <form>
+        <input type="email" placeholder="Your Email" />
+        <button type="submit">Subscribe</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 TaskMaster. Built with 💻 by Leen Eidy</p>
+  </div>
+</footer>
+
+
+  <script src="js/main.js"></script>
+</body>
+</html>

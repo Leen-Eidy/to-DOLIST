@@ -1,0 +1,613 @@
+/* ========== Base Reset ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  background-color: #f4f6f8;
+  color: #333;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  background-color: #4A90E2;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links button,
+.nav-links a {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.nav-links button:hover,
+.nav-links a:hover,
+.nav-links button.active,
+.nav-links a.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  outline: none;
+}
+
+/* ========== Main Sections ========== */
+main {
+  flex: 1;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Hide sections by default */
+.section {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+  display: none;
+}
+.section {
+  display: none;
+  padding: 2rem;
+}
+
+.section.active {
+  display: block;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1000px;
+  width: 100%;
+  gap: 40px;
+   background-size: 40px 40px;
+}
+
+.hero-text {
+  flex: 1;
+  font-size: 24px;
+  font-style: italic;
+  color: #333;
+  font-family: "Georgia", serif;
+}
+
+.hero-image {
+  flex: 1;
+}
+
+.hero-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+
+.about-us {
+  text-align:left;
+  max-width: 800px;
+  margin:  50px 20px;
+  padding: 20px 10px ;
+  font-family: "Georgia", serif;
+  line-height: 1.6;
+  background-color: #fefefe;
+  color: #333;
+  border-left: 4px solid #aaa;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+.about-us h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #444;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 5px;
+}
+
+.highlight {
+  font-style: italic;
+  position: relative;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.highlight.amazing:hover {
+  color: #d63384;
+  text-decoration: underline;
+}
+
+.highlight.elegant:hover {
+  color: #6f42c1;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.motivation-cards-wrapper {
+  overflow: hidden;
+  position: relative;
+  padding: 2rem 0;
+  background: linear-gradient(to right, #eef2f3, #f9f9f9); /* soft elegant bg */
+}
+
+.motivation-carousel {
+  display: flex;
+  gap: 1.5rem;
+  animation: scrollCards 40s linear infinite;
+  will-change: transform;
+}
+
+.motivation-card {
+  min-width: 250px;
+  height: 160px;
+  background: linear-gradient(135deg, #6ec1e4, #a777e3);
+  color: white;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.motivation-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+/* Scroll animation */
+@keyframes scrollCards {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+/* Show only active section */
+.section.active {
+  display: block;
+}
+
+.section:hover {
+  transform: translateY(-2px);
+}
+
+/* ========== Task Manager ========== */
+.task-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.task-form input,
+.task-form select {
+  flex: 1 1 200px;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+.task-form button {
+  padding: 0.6rem 1.2rem;
+  background-color: #7ED321;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.task-form button:hover {
+  background-color: #6ab61c;
+}
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.task-card {
+  background-color: #fff;
+  border-left: 6px solid #4A90E2;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.task-card p {
+  margin: 0.2rem 0;
+}
+
+.task-card .meta {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Priority Colors */
+.task-card.high {
+  border-left-color: #E74C3C;
+}
+
+.task-card.medium {
+  border-left-color: #F39C12;
+}
+
+.task-card.low {
+  border-left-color: #2ECC71;
+}
+
+/* Specific input types */
+.task-form input[type="date"],
+.task-form input[type="number"] {
+  max-width: 200px;
+}
+
+/* Section heading spacing */
+.section h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+}
+.focus-timer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+#timer-display {
+  font-size: 5rem;
+  color: #4A90E2;
+  font-weight: bold;
+}
+
+.focus-timer button {
+  padding: 0.6rem 1.4rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 8px;
+  background-color: #4A90E2;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.focus-timer button:hover {
+  background-color: #357ABD;
+}
+
+.focus-timer button:disabled {
+  background-color: #a3c2f7;
+  cursor: default;
+}
+.task-card.completed {
+  opacity: 0.6;
+}
+
+.task-card.completed strong {
+  text-decoration: line-through;
+  color: #888;
+}
+.task-filters button {
+  padding: 6px 12px;
+  border: none;
+  background-color: #f0f0f0;
+  color: #333;
+  margin-right: 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.task-filters button.active {
+  background-color: #007bff;
+  color: #fff;
+}
+.site-footer {
+  background-color: #4A90E2;
+  color: #f1f1f1;
+  padding: 40px 20px 20px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: auto;
+  gap: 40px;
+}
+
+.footer-brand h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
+  color: #fff;
+}
+.footer-brand h2 span {
+  color: rgb(23, 18, 85);
+}
+.footer-brand p {
+  font-size: 14px;
+  color: white;
+}
+
+.footer-links h4,
+.footer-social h4,
+.footer-subscribe h4 {
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+
+  text-decoration: none;
+}
+.footer-links a:hover {
+  color:rgb(23, 18, 85);
+}
+
+.social-icons a {
+  margin-right: 10px;
+  font-size: 20px;
+  color: white;
+  transition: color 0.3s ease;
+}
+.social-icons a:hover {
+  color: rgb(23, 18, 85);
+}
+
+.footer-subscribe input[type="email"] {
+  padding: 8px;
+  width: 180px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+  outline: none;
+}
+.footer-subscribe button {
+  padding: 8px 12px;
+  border: none;
+  background-color: rgb(23, 18, 85);
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+.footer-subscribe button:hover {
+  background-color: rgb(23, 18, 85);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  margin-top: 30px;
+  padding-top: 15px;
+  text-align: center;
+  font-size: 14px;
+  color: white;
+}
+.footer-nav {
+  background: none;
+  border: none;
+  color: #f1f1f1;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  text-align: left;
+}
+
+.footer-nav:hover {
+  color: rgb(23, 18, 85);
+  text-decoration:solid;
+}
+/* ================= RESPONSIVE DESIGN ================= */
+
+/* Tablets (portrait & landscape) */
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .hero-text {
+    font-size: 20px;
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+
+  .task-form {
+    flex-direction: column;
+  }
+
+  .footer-container {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}
+
+/* Phones (landscape & portrait) */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 1rem;
+  }
+
+  .logo {
+    font-size: 1.2rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5rem;
+  }
+
+  .nav-links button,
+  .nav-links a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .hero-text {
+    font-size: 18px;
+    line-height: 1.4;
+  }
+
+  .hero-image img {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .motivation-carousel {
+    animation: none; /* avoid too much movement on small screens */
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .motivation-card {
+    min-width: 80%;
+    height: auto;
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form button {
+    width: 100%;
+    max-width: none;
+  }
+
+  .task-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #timer-display {
+    font-size: 3rem;
+  }
+
+  .focus-timer button {
+    width: 100%;
+  }
+
+  .footer-container {
+    text-align: center;
+  }
+}
+
+/* Extra Small Phones (under 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+
+  .navbar {
+    padding: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1rem;
+  }
+
+  .hero-text {
+    font-size: 16px;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .motivation-card {
+    min-width: 100%;
+  }
+
+  .task-form input,
+  .task-form select,
+  .task-form button {
+    font-size: 0.9rem;
+    padding: 0.5rem;
+  }
+
+  .footer-subscribe input[type="email"] {
+    width: 100%;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-subscribe button {
+    width: 100%;
+    border-radius: 4px;
+  }
+}
+
